@@ -30,16 +30,16 @@ export async function swap(
 
       const initTo = [
         initToUsdcArgs(UINIT_SWAP_AMOUNT),
-        // initToTiaArgs(UINIT_SWAP_AMOUNT),
-        // initToEthArgs(UINIT_SWAP_AMOUNT),
-        // initToTucArgs(UINIT_SWAP_AMOUNT),
+        initToTiaArgs(UINIT_SWAP_AMOUNT),
+        initToEthArgs(UINIT_SWAP_AMOUNT),
+        initToTucArgs(UINIT_SWAP_AMOUNT),
       ]
 
       const toInit = [
         usdcToInitArgs(uusdc),
-        // tiaToInitArgs(utia),
-        // ethToInitArgs(ueth),
-        // tucToInitArgs(utuc),
+        tiaToInitArgs(utia),
+        ethToInitArgs(ueth),
+        tucToInitArgs(utuc),
       ]
 
       if (swapOrder === 1) {
