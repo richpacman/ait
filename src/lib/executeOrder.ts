@@ -1,9 +1,9 @@
 import { MsgExecute } from '@initia/initia.js'
 import { key } from '../config/initia'
-import { MSG_EXECUTE_TYPE, SWAP_CONSTANT } from '../constants/msg'
-import { attemptTransaction } from './attemptTransaction'
+import { MSG_EXECUTE_TYPE } from '../constants/msg'
+import { attemptTx } from './attemptTx'
 
-export async function executeTx(
+export async function executeOrder(
   order: string[][],
   orderLength: number,
   msgExecuteArgs: MSG_EXECUTE_TYPE
@@ -24,7 +24,7 @@ export async function executeTx(
     )
 
     try {
-      await attemptTransaction(i, msg, orderLength)
+      await attemptTx(msg, orderLength, i)
     } catch (error) {
       throw new Error(error as string)
     }

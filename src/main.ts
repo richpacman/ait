@@ -12,9 +12,11 @@ async function main() {
   }
 
   const stakingState = {
+    UINIT_DELEGATE_AMOUNT: '1000000uinit',
     UINIT_STAKING_AMOUNT: 1e6,
     targetValidator: NODES_GURU,
     isStaking: false,
+    stakingOrder: 1,
   }
 
   const executeState = {
@@ -23,18 +25,18 @@ async function main() {
   }
 
   await swap(
+    executeState,
     swapState.UINIT_SWAP_AMOUNT,
     swapState.MAX_SWAP_ITERATION,
-    executeState.isSwapping,
     swapState.swapOrder,
-    swapState.swapIteration,
-    executeState
+    swapState.swapIteration
   )
 
   await staking(
+    executeState,
+    stakingState.UINIT_DELEGATE_AMOUNT,
     stakingState.UINIT_STAKING_AMOUNT,
-    stakingState.targetValidator,
-    executeState.isStaking
+    stakingState.targetValidator
   )
 }
 

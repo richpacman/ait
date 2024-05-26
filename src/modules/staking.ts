@@ -1,17 +1,34 @@
+import { MsgDelegate } from '@initia/initia.js'
 import { STAKING_CONSTANT } from '../constants/msg'
 import {
   initEthSingleStaking,
   initTiaSingleStaking,
   initUsdcSingleStaking,
 } from '../constants/stakingArgs'
-import { executeTx } from '../lib/executeTx'
+import { executeOrder } from '../lib/executeOrder'
+import { key } from '../config/initia'
+import { attemptTx } from '../lib/attemptTx'
+
+async function delegate(
+  UINIT_DELEGATE_AMOUNT: string,
+  targetValidator: string
+) {
+  const msg = new MsgDelegate(
+    key.accAddress,
+    targetValidator,
+    UINIT_DELEGATE_AMOUNT
+  )
+
+  await attemptTx(msg)
+}
 
 export async function staking(
+  executeState: { isSwapping: boolean; isStaking: boolean },
+  UINIT_DELEGATE_AMOUNT: string,
   UINIT_STAKING_AMOUNT: number,
-  targetValidator: string,
-  isStaking: boolean
+  targetValidator: string
 ) {
-  if (isStaking) {
+  if (executeState.isStaking) {
     const singleInitStaking = [
       initUsdcSingleStaking(UINIT_STAKING_AMOUNT, targetValidator),
       initEthSingleStaking(UINIT_STAKING_AMOUNT, targetValidator),
@@ -21,7 +38,13 @@ export async function staking(
     console.log('Staking Started. Initiating')
 
     try {
-      await executeTx(
+      console.log('Delegating INIT')
+
+      await delegate(UINIT_DELEGATE_AMOUNT, targetValidator)
+
+      console.log('Two pair staking')
+
+      await executeOrder(
         singleInitStaking,
         singleInitStaking.length,
         STAKING_CONSTANT
@@ -30,7 +53,7 @@ export async function staking(
       throw new Error(error as string)
     }
 
-    isStaking = false
+    executeState.isStaking = false
     console.log('STAKING IS COMPLETE!')
   }
 }

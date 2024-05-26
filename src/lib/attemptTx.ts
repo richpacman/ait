@@ -1,11 +1,11 @@
-import { MsgExecute } from '@initia/initia.js'
+import { MsgDelegate, MsgExecute } from '@initia/initia.js'
 import { executeMsg } from './executeMsg'
 import { delay } from '../utils/utils'
 
-export async function attemptTransaction(
-  iteration: number,
-  msg: MsgExecute,
-  orderLength: number
+export async function attemptTx(
+  msg: MsgExecute | MsgDelegate,
+  orderLength?: number,
+  iteration?: number
 ) {
   let txResult
 
@@ -33,8 +33,10 @@ export async function attemptTransaction(
     }
   }
 
-  if (iteration !== orderLength - 1) {
-    console.log('Waiting 10 seconds for next transaction')
-    await delay(10000)
+  if (orderLength && iteration) {
+    if (iteration !== orderLength - 1) {
+      console.log('Waiting 10 seconds for next transaction')
+      await delay(10000)
+    }
   }
 }

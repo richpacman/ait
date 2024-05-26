@@ -9,19 +9,18 @@ import {
   tucToInitArgs,
   usdcToInitArgs,
 } from '../constants/swapArgs'
-import { executeTx } from '../lib/executeTx'
+import { executeOrder } from '../lib/executeOrder'
 import { getBalances } from '../lib/getBalances'
 import { delay } from '../utils/utils'
 
 export async function swap(
+  executeState: { isSwapping: boolean; isStaking: boolean },
   UINIT_SWAP_AMOUNT: number,
   MAX_SWAP_ITERATION: number,
-  isSwap: boolean,
   swapOrder: number,
-  swapIteration: number,
-  executeState: { isSwapping: boolean; isStaking: boolean }
+  swapIteration: number
 ) {
-  if (isSwap) {
+  if (executeState.isSwapping) {
     while (true) {
       console.log('Swapping Started. Initiating')
       console.log('Current swap iteration:', swapIteration)
@@ -46,7 +45,7 @@ export async function swap(
         console.log('INIT <> TOKEN')
 
         try {
-          await executeTx(initTo, initTo.length, SWAP_CONSTANT)
+          await executeOrder(initTo, initTo.length, SWAP_CONSTANT)
         } catch (error) {
           throw new Error(error as string)
         }
@@ -56,7 +55,7 @@ export async function swap(
         console.log('TOKEN <> INIT ')
 
         try {
-          await executeTx(toInit, toInit.length, SWAP_CONSTANT)
+          await executeOrder(toInit, toInit.length, SWAP_CONSTANT)
         } catch (error) {
           throw new Error(error as string)
         }

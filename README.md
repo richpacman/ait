@@ -17,6 +17,31 @@
 
 Type `npm run start`
 
+## Tasks Order
+
+### Swapping
+
+1. **INIT <> TOKEN:**
+
+- INIT <> USDC
+- INIT <> TIA
+- INIT <> ETH
+- INIT <> TUC
+
+2. **TOKEN <> INIT**
+
+- USDC <> INIT
+- TIA <> INIT
+- ETH <> INIT
+- TUC <> INIT
+
+### Staking
+
+- DELEGATE INIT
+- INIT <> USDC
+- INIT <> ETH
+- INIT <> TIA
+
 ## Support
 
 Donation : `0xfc18eeb8c385334994fb95374a65818c2daa70ee`
