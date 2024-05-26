@@ -14,7 +14,7 @@ const lcd = new LCDClient('https://lcd.initiation-1.initia.xyz', {
 
 const key = new MnemonicKey({
   mnemonic: MNEMONIC,
-  coinType: 60,
+  coinType: 60, // 60 if your wallet from evm like network, otherwise make it 118
 })
 
 const wallet = new Wallet(lcd, key)
