@@ -1,0 +1,20 @@
+{
+  "name": "ait",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/main.ts",
+  "author": "rpm <therichpacman@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node-lts": "^20.1.3",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@initia/initia.js": "^0.2.4",
+    "dotenv": "^16.4.5",
+    "tsx": "^4.11.0"
+  },
+  "scripts": {
+    "start": "npx tsx src/main.ts"
+  }
+}

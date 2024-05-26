@@ -1,0 +1,25 @@
+type MSG_EXECUTE_TYPE = {
+  MODULE_ADDRESS: string
+  MODULE_NAME: string
+  FUNCTION_NAME: string
+  TYPE_ARGS: undefined
+}
+
+// SWAP MSG EXECUTE ARGS
+const SWAP_CONSTANT: MSG_EXECUTE_TYPE = {
+  MODULE_ADDRESS: '0x1',
+  MODULE_NAME: 'dex',
+  FUNCTION_NAME: 'swap_script',
+  TYPE_ARGS: undefined,
+}
+
+// STAKING MSG EXECUTE ARGS
+const STAKING_CONSTANT: MSG_EXECUTE_TYPE = {
+  MODULE_ADDRESS:
+    '0x42cd8467b1c86e59bf319e5664a09b6b5840bb3fac64f5ce690b5041c530565a',
+  MODULE_NAME: 'dex_utils',
+  FUNCTION_NAME: 'single_asset_provide_stake',
+  TYPE_ARGS: undefined,
+}
+
+export { MSG_EXECUTE_TYPE, SWAP_CONSTANT, STAKING_CONSTANT }
