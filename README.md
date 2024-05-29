@@ -2,8 +2,7 @@
 
 ## Requirements
 
-- Brain
-- Node JS
+- Node JS ( LTS Version )
 - Already mint 6 NFT
 - Have atleast 10 INIT
 
