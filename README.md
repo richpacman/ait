@@ -13,6 +13,8 @@
 
 3. Install the pkg `npm install`
 
+4. If you create wallet using initia wallet change `coinType` in `src/config/initia.ts` to 118
+
 ## Start
 
 Type `npm run start`
