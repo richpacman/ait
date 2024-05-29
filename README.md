@@ -3,7 +3,7 @@
 ## Requirements
 
 - Node JS ( LTS Version )
-- Already mint 6 NFT
+- Already mint 6 NFT ( Jennie pet )
 - Have atleast 10 INIT
 
 ## Installation
