@@ -4,6 +4,8 @@
 
 - Brain
 - Node JS
+- Already mint 6 NFT
+- Have atleast 10 INIT
 
 ## Installation
 
