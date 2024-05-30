@@ -4,7 +4,7 @@
 
 - Node JS ( LTS Version )
 - Already mint 6 NFT ( Jennie pet )
-- Have atleast 10 INIT
+- Have atleast 3 GAS token to pay fees
 
 ## Installation
 
